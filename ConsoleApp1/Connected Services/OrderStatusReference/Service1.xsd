@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://www.promostandards.org/WSDL/OrderStatusService/1.0.0/" elementFormDefault="qualified" targetNamespace="http://www.promostandards.org/WSDL/OrderStatusService/1.0.0/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="GetOrderStatusDetailsRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="wsVersion" type="xs:token" />
+        <xs:element minOccurs="0" maxOccurs="1" name="id" type="xs:token" />
+        <xs:element minOccurs="0" maxOccurs="1" name="password" type="xs:token" />
+        <xs:element minOccurs="1" maxOccurs="1" name="queryType" type="xs:int" />
+        <xs:element minOccurs="0" maxOccurs="1" name="referenceNumber" type="xs:token" />
+        <xs:element minOccurs="1" maxOccurs="1" name="statusTimeStamp" nillable="true" type="xs:dateTime" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetOrderStatusDetailsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="OrderStatusArray" type="tns:ArrayOfGetOrderStatusDetailsResponseOrderStatus" />
+        <xs:element minOccurs="0" maxOccurs="1" name="errorMessage" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="ArrayOfGetOrderStatusDetailsResponseOrderStatus">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="OrderStatus">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="1" name="purchaseOrderNumber" type="xs:token" />
+            <xs:element minOccurs="0" maxOccurs="1" name="OrderStatusDetailArray" type="tns:ArrayOfGetOrderStatusDetailsResponseOrderStatusOrderStatusDetail" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ArrayOfGetOrderStatusDetailsResponseOrderStatusOrderStatusDetail">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="OrderStatusDetail">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="1" name="factoryOrderNumber" type="xs:token" />
+            <xs:element minOccurs="1" maxOccurs="1" name="statusID">
+              <xs:simpleType>
+                <xs:restriction base="xs:string">
+                  <xs:enumeration value="10" />
+                  <xs:enumeration value="11" />
+                  <xs:enumeration value="20" />
+                  <xs:enumeration value="20" />
+                  <xs:enumeration value="30" />
+                  <xs:enumeration value="40" />
+                  <xs:enumeration value="41" />
+                  <xs:enumeration value="42" />
+                  <xs:enumeration value="43" />
+                  <xs:enumeration value="44" />
+                  <xs:enumeration value="60" />
+                  <xs:enumeration value="70" />
+                  <xs:enumeration value="75" />
+                  <xs:enumeration value="80" />
+                  <xs:enumeration value="99" />
+                </xs:restriction>
+              </xs:simpleType>
+            </xs:element>
+            <xs:element minOccurs="0" maxOccurs="1" name="statusName" type="xs:token" />
+            <xs:element minOccurs="0" maxOccurs="1" name="expectedShipDate" nillable="true" type="xs:dateTime" />
+            <xs:element minOccurs="0" maxOccurs="1" name="expectedDeliveryDate" nillable="true" type="xs:dateTime" />
+            <xs:element minOccurs="0" maxOccurs="1" name="ResponseToArray" type="tns:ArrayOfGetOrderStatusDetailsResponseOrderStatusOrderStatusDetailRespondTo" />
+            <xs:element minOccurs="0" maxOccurs="1" name="additionalExplanation" type="xs:string" />
+            <xs:element minOccurs="0" maxOccurs="1" name="responseRequired" type="xs:boolean" />
+            <xs:element minOccurs="1" maxOccurs="1" name="validTimestamp" type="xs:dateTime" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ArrayOfGetOrderStatusDetailsResponseOrderStatusOrderStatusDetailRespondTo">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="RespondTo">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="1" name="name" type="xs:token" />
+            <xs:element minOccurs="0" maxOccurs="1" name="emailAddress" type="xs:token" />
+            <xs:element minOccurs="0" maxOccurs="1" name="phoneNumber" type="xs:token" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GetOrderStatusTypesRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="wsVersion" type="xs:token" />
+        <xs:element minOccurs="0" maxOccurs="1" name="id" type="xs:token" />
+        <xs:element minOccurs="0" maxOccurs="1" name="password" type="xs:token" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetOrderStatusTypesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="StatusArray" type="tns:ArrayOfGetOrderStatusTypesResponseStatus" />
+        <xs:element minOccurs="0" maxOccurs="1" name="errorMessage" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="ArrayOfGetOrderStatusTypesResponseStatus">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Status">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="1" maxOccurs="1" name="id" type="xs:int" />
+            <xs:element minOccurs="0" maxOccurs="1" name="name" type="xs:token" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://www.promostandards.org/WSDL/OrderStatusService/1.0.0/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.promostandards.org/WSDL/OrderStatusService/1.0.0/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://www.promostandards.org/WSDL/OrderStatusService/1.0.0/Imports">
+      <xsd:import schemaLocation="http://localhost:52578/Service1.svc?xsd=xsd0" namespace="http://www.promostandards.org/WSDL/OrderStatusService/1.0.0/" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="getOrderStatusDetailsRequest1">
+    <wsdl:part name="GetOrderStatusDetailsRequest" element="tns:GetOrderStatusDetailsRequest" />
+  </wsdl:message>
+  <wsdl:message name="getOrderStatusDetailsResponse">
+    <wsdl:part name="GetOrderStatusDetailsResponse" element="tns:GetOrderStatusDetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="getOrderStatusTypesRequest">
+    <wsdl:part name="GetOrderStatusTypesRequest" element="tns:GetOrderStatusTypesRequest" />
+  </wsdl:message>
+  <wsdl:message name="getOrderStatusTypesResponse">
+    <wsdl:part name="GetOrderStatusTypesResponse" element="tns:GetOrderStatusTypesResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IService1">
+    <wsdl:operation name="getOrderStatusDetails">
+      <wsdl:input wsaw:Action="getOrderStatusDetails" name="getOrderStatusDetailsRequest1" message="tns:getOrderStatusDetailsRequest1" />
+      <wsdl:output wsaw:Action="http://www.promostandards.org/WSDL/OrderStatusService/1.0.0/IService1/getOrderStatusDetailsResponse" name="getOrderStatusDetailsResponse" message="tns:getOrderStatusDetailsResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getOrderStatusTypes">
+      <wsdl:input wsaw:Action="getOrderStatusTypes" name="getOrderStatusTypesRequest" message="tns:getOrderStatusTypesRequest" />
+      <wsdl:output wsaw:Action="http://www.promostandards.org/WSDL/OrderStatusService/1.0.0/IService1/getOrderStatusTypesResponse" name="getOrderStatusTypesResponse" message="tns:getOrderStatusTypesResponse" />
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>
